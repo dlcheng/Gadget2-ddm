@@ -1,0 +1,157 @@
+%  Relevant files
+
+InitCondFile  	   /users/s0902248/Install/Gadget2/Decay-dark-matter-cosmology/ICs/LTic_512_512.dat
+OutputDir          /users/s0902248/Install/Gadget2/Decay-dark-matter-cosmology/Result/Decay-test-1
+
+EnergyFile         energy.txt
+InfoFile           info.txt
+TimingsFile        timings.txt
+CpuFile            cpu.txt
+
+RestartFile        restart
+SnapshotFileBase   snapshot
+
+
+
+% CPU time -limit
+
+TimeLimitCPU      7200000  % = 2000 hours
+ResubmitOn        0
+ResubmitCommand   my-scriptfile  
+
+
+% Code options
+
+
+ICFormat                 1
+SnapFormat               1
+ComovingIntegrationOn    1   %0 for the case of Newtonian simulation
+
+TypeOfTimestepCriterion  0    %only 0 can be used
+
+PeriodicBoundariesOn     1   %0 stop perodical boundary condition
+
+%  Caracteristics of run
+
+TimeBegin             9.90099009901e-3 % 9.83931031e-03     %Mpgrafic
+                                       % 9.90099009901e-3   %LTic:z=100           
+TimeMax	              1                             %
+
+Omega0	              0.3
+OmegaLambda           0.7         %set to 0 to do the Newtonian simulation
+OmegaBaryon           0           %not used in the public version of Gadget2
+HubbleParam           0.7         %in the unit of 100km/s/Mpc
+BoxSize               512000.0   %in unit of kpc/h
+
+% Output frequency
+
+OutputListOn            1            % 1 for switch the outputlit on
+OutputListFilename      /users/s0902248/Install/Gadget2/Decay-dark-matter-cosmology/parameterfiles/output_time.txt
+ 
+TimeOfFirstSnapshot     9.66200e-04
+TimeBetSnapshot         2.3747794122
+
+
+CpuTimeBetRestartFile     360000.0  % time from the start or the last output of restart files to output restart files
+
+TimeBetStatistics         1       % not clear now
+
+NumFilesPerSnapshot       1
+NumFilesWrittenInParallel 1        
+
+
+
+% Accuracy of time integration
+
+ErrTolIntAccuracy      0.025 
+
+MaxRMSDisplacementFac  0.2
+
+CourantFac             0.15     %SPH related parameter
+
+MaxSizeTimestep       0.025
+MinSizeTimestep       0.0
+
+
+
+
+% Tree algorithm, force accuracy, domain update frequency
+
+ErrTolTheta            0.7     %0.6 Power et al.(2003)
+TypeOfOpeningCriterion 1
+ErrTolForceAcc         0.005   %0.001 Power et al.(2003)
+
+
+TreeDomainUpdateFrequency    0.05 % 0.1 Power et al.(2003)
+
+
+%  Further parameters of SPH
+
+DesNumNgb              33
+MaxNumNgbDeviation     2
+ArtBulkViscConst       0.8
+InitGasTemp            10000.0        % always ignored if set to 0 , over 10^4 if gas is ionized
+MinGasTemp             50.0    
+
+
+% Memory allocation
+
+PartAllocFactor       2.0
+TreeAllocFactor       1.0
+BufferSize            100         % in MByte
+
+
+% System of units
+
+UnitLength_in_cm         3.085678e21        ;  1.0 kpc 
+UnitMass_in_g            1.989e43           ;  1.0e10 solar masses 
+UnitVelocity_in_cm_per_s 1e5                ;  1 km/sec 
+GravityConstantInternal  0
+ 
+
+% Softening lengths
+
+MinGasHsmlFractional 0.25
+
+SofteningGas       0
+SofteningHalo      20.0
+SofteningDisk      0
+SofteningBulge     0           
+SofteningStars     0
+SofteningBndry     0
+
+SofteningGasMaxPhys       0
+SofteningHaloMaxPhys      20.0
+SofteningDiskMaxPhys      0
+SofteningBulgeMaxPhys     0           
+SofteningStarsMaxPhys     0
+SofteningBndryMaxPhys     0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
